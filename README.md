@@ -3,11 +3,13 @@
 1. git clone git@github.com:testtolearn1/Libre-e2e.git
 2. cd Libre-e2e
 3. npm i
-4. create/ use the one uploaded .env file with below details
+4. create/ use the one uploaded .env file with below details :
+
    ENVIRONMENT_URL= https://qa-challange.netlify.app
    METAMASK_SETUP_PRIVATE_KEY=a22e8ce08bb5c..............bf847e
    METAMASK_SETUP_NETWORK=sepolia
    METAMASK_SETUP_PASSWORD=Test@1234
+
 5. Run the test using $ npm run test:headed (for headed tests running on browser)
    or $ npx playwright test
 6. In order to run the github actions , add the variables given in .env to Repo-> settings-> Secrets and Variables -> Actions . Add Repository secrets and variables from .env
