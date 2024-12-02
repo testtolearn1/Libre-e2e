@@ -1,9 +1,6 @@
 name: all-demo-tests
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:

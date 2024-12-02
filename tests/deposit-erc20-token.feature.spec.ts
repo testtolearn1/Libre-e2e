@@ -25,7 +25,7 @@ test.describe("Deposit ERC20 tokens", () => {
   And the deposit button is not visible
   **/
 
-  test.only("The user try to deposit a ERC20 token with an empty balance", async ({
+  test("The user try to deposit a ERC20 token with an empty balance", async ({
     searchPage,
     depositHistoryPage
   }) => {
