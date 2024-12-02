@@ -33,4 +33,5 @@
 
 ## Results :
 
-Github wokflow run : https://github.com/testtolearn1/Libre-e2e/actions/runs/12118719808
+Github wokflow run : ## https://github.com/testtolearn1/Libre-e2e/actions/runs/12118719808
+Video file of test executions : ## https://drive.google.com/file/d/1Kc9EwsIVLp00FRrcfeiAs4vkLjObieed/view?usp=sharing
