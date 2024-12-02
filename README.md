@@ -17,13 +17,15 @@
 
 ## Note :
 
-- 1. When the main page loads the network state remians in 'Loading ...' with http as 304 Not modified . This should be updated to 200 with corresponsing state change .
+- 1.  When the main page loads the network state remians in 'Loading ...' with http as 304 Not modified . This should be updated to 200 with corresponsing state change .
 
-div id="\_\_next">
+          ```html
 
-<div class="mx-4" data-test="AppPage**Div\_\_content">
-<p class="text-white-700">Loading...</p>
-</div>
+      <div id="__next">
+          <div class="mx-4" data-test="AppPage__Div__content">
+              <p class="text-white-700">Loading...</p>
+          </div>
+      </div>
 
 - 2. Also on page change , the api endpoints should also change , this helps for better testing , mocking the api req/responses and better proxying and debugging
 
