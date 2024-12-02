@@ -19,7 +19,7 @@
 
 - 1. When the main page loads the network state remians in 'Loading ...' with http as 304 Not modified . This should be updated to 200 with corresponsing state change .
 
-div id="\*\*next">
+div id="\_\_next">
 
 <div class="mx-4" data-test="AppPage**Div\_\_content">
 <p class="text-white-700">Loading...</p>
