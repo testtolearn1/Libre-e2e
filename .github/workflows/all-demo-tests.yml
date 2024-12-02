@@ -20,7 +20,7 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Run Playwright tests
         # run: xvfb-run --auto-servernum -- npm run test:headed
-        run: xvfb-run --auto-servernum -- npx run test --retries=2
+        run: xvfb-run --auto-servernum -- npm run test --retries=2
         env:
           ENVIRONMENT_URL: https://qa-challange.netlify.app
           METAMASK_SETUP_NETWORK: ${{ vars.METAMASK_SETUP_NETWORK}}
