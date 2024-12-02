@@ -1,6 +1,9 @@
 name: all-demo-tests
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -11,21 +14,40 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+
       - name: Install dependencies
         run: npm install
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
+
+      - name: Set environment variables
+        run: |
+          echo "Loading environment variables..."
+          # Check if required secrets are set, otherwise load from .env
+          ENVIRONMENT_URL=${{ secrets.ENVIRONMENT_URL || secrets.METAMASK_SETUP_NETWORK || secrets.METAMASK_SETUP_PRIVATE_KEY || secrets.METAMASK_SETUP_PASSWORD }}
+          echo "Using $ENVIRONMENT_URL as the URL"
+
+          # Load .env file if secrets are not set
+          if [[ -f .env ]]; then
+            echo "Loading variables from .env file..."
+            export $(cat .env | grep -v ^# | xargs)
+          else
+            echo "No .env file found, proceeding with GitHub Secrets."
+          fi
+
       - name: Run Playwright tests
         # run: xvfb-run --auto-servernum -- npm run test:headed
         run: xvfb-run --auto-servernum -- npx playwright test --retries=2
         env:
-          ENVIRONMENT_URL: https://qa-challange.netlify.app
-          METAMASK_SETUP_NETWORK: ${{ vars.METAMASK_SETUP_NETWORK}}
-          METAMASK_SETUP_PRIVATE_KEY: ${{secrets.METAMASK_SETUP_PRIVATE_KEY}}
-          METAMASK_SETUP_PASSWORD: ${{secrets.METAMASK_SETUP_PASSWORD}}
+          ENVIRONMENT_URL: ${{ secrets.ENVIRONMENT_URL || env.ENVIRONMENT_URL }}
+          METAMASK_SETUP_NETWORK: ${{ secrets.METAMASK_SETUP_NETWORK || env.METAMASK_SETUP_NETWORK }}
+          METAMASK_SETUP_PRIVATE_KEY: ${{ secrets.METAMASK_SETUP_PRIVATE_KEY || env.METAMASK_SETUP_PRIVATE_KEY }}
+          METAMASK_SETUP_PASSWORD: ${{ secrets.METAMASK_SETUP_PASSWORD || env.METAMASK_SETUP_PASSWORD }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
