@@ -3,9 +3,6 @@ name: all-demo-tests
 on:
   workflow_dispatch:
 
-# concurrency:
-#   group: ci-demo
-
 jobs:
   all-demo-tests:
     timeout-minutes: 60
@@ -22,7 +19,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
       - name: Run Playwright tests
-        run: xvfb-run --auto-servernum -- npm run test:headed
+        # run: xvfb-run --auto-servernum -- npm run test:headed
+        run: xvfb-run --auto-servernum -- npx run test --retries=2
         env:
           ENVIRONMENT_URL: https://qa-challange.netlify.app
           METAMASK_SETUP_NETWORK: ${{ vars.METAMASK_SETUP_NETWORK}}

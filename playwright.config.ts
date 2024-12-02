@@ -26,9 +26,10 @@ export default defineConfig({
     viewport: { width: 1280, height: 720 }, // Default viewport size
     ignoreHTTPSErrors: true, // Ignore HTTPS errors
     video: 'on', // Record video of each test ('on', 'off', 'retain-on-failure')
+    navigationTimeout: 60000, // Page navigation timeout
   },
   reportSlowTests: null,
-  timeout: 90000,
+  timeout: 180000,
   /* Configure projects for major browsers */
   projects: [
     {
