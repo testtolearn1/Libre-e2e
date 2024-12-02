@@ -1,8 +1,5 @@
 import { test, expect } from "../fixtures/fixtures";
 import * as metamask from "@synthetixio/synpress/commands/metamask";
-import exp from "constants";
-import fs from 'fs';
-import path from 'path';
 
 
 test.describe("Deposit ERC20 tokens", () => {
