@@ -19,15 +19,17 @@
 
 1.  When the main page loads the network state remians in 'Loading ...' with http as 304 Not modified . This should be updated to 200 with corresponsing state change .
 
-   <div id="__next">
-    <div class="mx-4" data-test="AppPage__Div__content">
+    ```html
+    <div id="__next">
+      <div class="mx-4" data-test="AppPage__Div__content">
         <p class="text-white-700">Loading...</p>
+      </div>
     </div>
-   </div>
+    ```
 
-2. Also on page change , the api endpoints should also change , this helps for better testing , mocking the api req/responses and better proxying and debugging
+2.  Also on page change , the api endpoints should also change , this helps for better testing , mocking the api req/responses and better proxying and debugging
 
-3. From a UI perspective , the app could be enhanced like having a disconnect button and others.
+3.  From a UI perspective , the app could be enhanced like having a disconnect button and others.
 
 ## Results :
 
